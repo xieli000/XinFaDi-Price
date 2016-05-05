@@ -63,7 +63,7 @@ def get_xinfadi_price():
                 # Handle Chinese char in CSV file, f.write('\xEF\xBB\xBF') also works
                 csv_file.write(codecs.BOM_UTF8)             
                 csv_w = csv.writer(csv_file,dialect='excel')
-                csv_w.writerow(['Ʒ��', '��ͼ�', 'ƽ����','��߼�','���','��λ','��������']) 
+                csv_w.writerow(['品名', '最低价', '平均价','最高价','规格','单位','发布日期']) 
                 csv_file.close()   
                 RecNuminFile = 0
          
@@ -108,10 +108,10 @@ def get_xinfadi_price():
                 
                 # Get all the records to 'rows' 
                 rows = table.find_all("tr")
-                # print '��%d���� %d �м�¼' %(Veg_Fruit,len(rows))       
+                # print '本%d表有 %d 行记录' %(Veg_Fruit,len(rows))       
                 
                 for row_pointer in range(rows_remain_in_page,0,-1): 
-                    # Get the row from table in page one by one, with descending sequence�� easy to append 
+                    # Get the row from table in page one by one, with descending sequence， easy to append 
                     # new content to CSV file. The record is identified by row_no from table, and assemble to msg.  
                     cells = rows[row_pointer].find_all("td")      
                     
